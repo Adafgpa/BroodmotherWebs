@@ -27,21 +27,20 @@
         </repository>
     </repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.21.11-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
+    <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MythicMobs</artifactId>
             <version>5.7.2</version>
             <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
+            <!-- Force Maven to ignore the broken internal metadata -->
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+    </dependency>
+         
     <build>
         <defaultGoal>clean package</defaultGoal>
         <resources>
