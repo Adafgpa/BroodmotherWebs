@@ -23,7 +23,7 @@
         <!-- MythicMobs Repository -->
         <repository>
             <id>nexus</id>
-            <url>https://nexus.lumine.io/repository/maven-public/</url>
+            <url>https://mvn.lumine.io/repository/maven-public/</url>
         </repository>
     </repositories>
 
