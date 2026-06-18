@@ -27,7 +27,8 @@
         </repository>
     </repositories>
 
-    <dependency>
+    <!-- Local Compiled Mythic Core Hook -->
+        <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MythicMobs</artifactId>
             <version>5.7.2</version>
@@ -39,7 +40,7 @@
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
-    </dependency>
+        </dependency>
          
     <build>
         <defaultGoal>clean package</defaultGoal>
