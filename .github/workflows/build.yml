@@ -15,15 +15,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Downloads a direct official copy of MythicMobs to compile against
-    - name: Download MythicMobs Core Dependency
+    # Installs the file directly from the root of your repository
+    - name: Install Mythic Local Dependency
       run: |
-        mkdir -p libs
-        curl -L -o libs/MythicMobs.jar "https://mvn.lumine.io/repository/maven-public/io/lumine/MythicMobs/5.7.2/MythicMobs-5.7.2.jar" || curl -L -o libs/MythicMobs.jar "https://nexus.lumine.io/repository/maven-public/io/lumine/MythicMobs/5.7.0/MythicMobs-5.7.0.jar"
-
-    - name: Install MythicMobs Local Dependency
-      run: |
-        mvn install:install-file -Dfile=libs/MythicMobs.jar -DgroupId=io.lumine -DartifactId=MythicMobs -Dversion=5.7.2 -Dpackaging=jar
+        mvn install:install-file -Dfile=Mythic-API-5.7.2.jar -DgroupId=io.lumine -DartifactId=MythicMobs -Dversion=5.7.2 -Dpackaging=jar
 
     - name: Build with Maven
       run: mvn clean package
