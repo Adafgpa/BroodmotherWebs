@@ -15,11 +15,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Downloads the full implementation JAR from a mirror to satisfy package checks
-    - name: Pre-load Full MythicMobs Jar
+    # This takes your uploaded repository file and injects it safely into the runner
+    - name: Locally Register Mythic Jar
       run: |
-        mkdir -p ~/.m2/repository/io/lumine/MythicMobs/5.7.2/
-        curl -L -o ~/.m2/repository/io/lumine/MythicMobs/5.7.2/MythicMobs-5.7.2.jar "https://nexus.hc.to/repository/pub-mirror/io/lumine/MythicMobs/5.7.2/MythicMobs-5.7.2.jar"
+        mvn install:install-file -Dfile=Mythic-API-5.7.2.jar -DgroupId=io.lumine -DartifactId=MythicMobs -Dversion=5.7.2 -Dpackaging=jar
 
     - name: Build with Maven
       run: mvn clean package
