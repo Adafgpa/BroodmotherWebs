@@ -15,10 +15,15 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # This takes your uploaded repository file and injects it safely into the runner
+    # Downloads the full implementation JAR from a completely clean public build archive
+    - name: Download Pristine Mythic Core
+      run: |
+        curl -L -o MythicMobs-Full.jar "https://repo.minebench.de/repository/minecraft/io/lumine/MythicMobs/5.7.2/MythicMobs-5.7.2.jar"
+
+    # Registers it locally so Maven bypasses online lookups
     - name: Locally Register Mythic Jar
       run: |
-        mvn install:install-file -Dfile=Mythic-API-5.7.2.jar -DgroupId=io.lumine -DartifactId=MythicMobs -Dversion=5.7.2 -Dpackaging=jar
+        mvn install:install-file -Dfile=MythicMobs-Full.jar -DgroupId=io.lumine -DartifactId=MythicMobs -Dversion=5.7.2 -Dpackaging=jar
 
     - name: Build with Maven
       run: mvn clean package
