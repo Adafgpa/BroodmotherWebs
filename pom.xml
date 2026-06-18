@@ -28,7 +28,6 @@
     </repositories>
 
     <dependencies>
-        <!-- Spigot API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
@@ -36,13 +35,17 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Direct Local File Link (Bypasses Metadata Checks Entirely) -->
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MythicMobs</artifactId>
             <version>5.7.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/Mythic-API-5.7.2.jar</systemPath>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
          
