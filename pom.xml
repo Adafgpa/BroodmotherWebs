@@ -27,7 +27,16 @@
         </repository>
     </repositories>
 
-    <!-- Local Compiled Mythic Core Hook -->
+    <dependencies>
+        <!-- Spigot API -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.21.11-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Local Compiled Mythic Core Hook -->
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MythicMobs</artifactId>
@@ -41,6 +50,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+    </dependencies>
          
     <build>
         <defaultGoal>clean package</defaultGoal>
