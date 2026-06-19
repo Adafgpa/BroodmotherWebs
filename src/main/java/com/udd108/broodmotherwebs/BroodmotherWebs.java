@@ -50,15 +50,22 @@ public class BroodmotherWebs extends JavaPlugin implements Listener {
     private void triggerMythicSkill(Player player, Block block) {
         if (!Bukkit.getPluginManager().isPluginEnabled("MythicMobs")) return;
 
-        // Load your specific MythicMobs skill
-        Optional<Skill> skillMaybe = MythicProvider.get().getSkillManager().getSkill("WebBreakException");
-        
-        if (skillMaybe.isPresent()) {
-            Skill skill = skillMaybe.get();
-            SkillCaster caster = MythicProvider.get().getMobManager().getStatueCaster(player);
+        // Get the caster profile for the player
+SkillCaster caster = MythicProvider.get().getMobManager().getCaster(player);
 
-            // Cast the skill at the broken block location, targeting the player as the trigger
-            skill.execute(caster, BukkitAdapter.adapt(block.getLocation()), BukkitAdapter.adapt(player));
-        }
+if (skill != null && caster != null) {
+    // Modern API requires a SkillMetadata wrapper instead of passing parameters directly
+    io.lumine.mythic.api.skills.SkillMetadata meta = new io.lumine.mythic.core.skills.SkillMetadataImpl(
+        io.lumine.mythic.api.skills.SkillTrigger.API, 
+        caster, 
+        BukkitAdapter.adapt(player)
+    );
+    
+    // Set the specific location target of the block being broken
+    meta.setLocationTarget(BukkitAdapter.adapt(block.getLocation()));
+    
+    // Execute cleanly
+    skill.execute(meta);
+}
     }
 }
