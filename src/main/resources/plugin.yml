@@ -1,6 +1,8 @@
 name: BroodmotherWebs
 version: 1.0
 main: com.udd108.broodmotherwebs.BroodmotherWebs
-api-version: 1.21
-depend: [MythicMobs]
-description: Overrides dungeon protections to allow players to punch through Broodmother cobwebs.
+api-version: '1.21'
+commands:
+  bmwebs:
+    description: Main command for managing cocoon block protection.
+    permission: broodmotherwebs.admin
