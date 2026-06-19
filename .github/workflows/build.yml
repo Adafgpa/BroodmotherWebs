@@ -15,7 +15,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Completely offline build phase using your uploaded root JAR
+    # Completely offline build using the real server jar file
     - name: Build with Maven
       run: mvn clean package
       
