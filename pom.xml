@@ -23,7 +23,6 @@
     </repositories>
 
     <dependencies>
-        <!-- Spigot API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
@@ -31,13 +30,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Pure Offline System Scope -->
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MythicMobs</artifactId>
-            <version>5.7.2</version>
+            <version>5.12.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/Mythic-API-5.7.2.jar</systemPath>
+            <systemPath>${project.basedir}/MythicMobs-5.12.1.jar</systemPath>
         </dependency>
     </dependencies>
          
