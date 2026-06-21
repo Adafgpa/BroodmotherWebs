@@ -77,7 +77,7 @@ public class BroodmotherWebs extends JavaPlugin implements Listener, CommandExec
         Material material = block.getType();
         
         // Form unified identifier format: "MATERIAL_NAME:X,Y,Z"
-        String blockKey = material.name() + ":" + block.getX() + "," + block.getY() + "," + block.getZ();
+        String blockKey = block.getWorld().getName() + ":" + material.name() + ":" + block.getX() + "," + block.getY() + "," + block.getZ();
 
         // If the database explicitly recognizes this static block at this spot -> PROTECT IT
         if (protectedBlocks.contains(blockKey)) {
