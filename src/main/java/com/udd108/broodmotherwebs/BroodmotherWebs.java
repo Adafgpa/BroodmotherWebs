@@ -139,7 +139,7 @@ public class BroodmotherWebs extends JavaPlugin implements Listener, CommandExec
                     for (int z = -radius; z <= radius; z++) {
                         Block b = world.getBlockAt(origin.getBlockX() + x, origin.getBlockY() + y, origin.getBlockZ() + z);
                         if (b.getType() == targetMaterial) {
-                            String key = block.getWorld().getName() + ":" + targetMaterial.name() + ":" + b.getX() + "," + b.getY() + "," + b.getZ();
+                            String key = b.getWorld().getName() + ":" + targetMaterial.name() + ":" + b.getX() + "," + b.getY() + "," + b.getZ();
                             protectedBlocks.add(key);
                             foundCount++;
                         }
